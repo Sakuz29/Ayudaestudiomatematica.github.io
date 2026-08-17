@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de Triángulos y Geometría — Prueba Específica Médico y Cirujano CUNOC</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1d212a; --line:#2a2f3a;
+    --tx:#e7eaf0; --dim:#9aa3b2; --acc:#4da3ff; --ok:#3ddc97; --warn:#ffb454; --bad:#ff6b6b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:28px}
+  h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+  .sub{color:var(--dim);font-size:15px}
+  h2{font-size:22px;margin:44px 0 14px;padding-top:14px;border-top:1px solid var(--line)}
+  h3{font-size:17px;margin:26px 0 10px;color:var(--acc)}
+  h4{font-size:15px;margin:18px 0 6px;color:var(--tx)}
+  p{margin:10px 0}
+  code,.m{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:14.5px}
+  .m{background:#232833;padding:1px 6px;border-radius:4px;color:#cfe4ff}
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:16px 0}
+  .box.acc{border-left:3px solid var(--acc)}
+  .box.ok{border-left:3px solid var(--ok)}
+  .box.warn{border-left:3px solid var(--warn)}
+  .box.bad{border-left:3px solid var(--bad)}
+  .lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--panel2);color:var(--dim);font-weight:600;font-size:13px;
+     letter-spacing:.04em;text-transform:uppercase}
+  td.c,th.c{text-align:center}
+  .q{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+     padding:16px 18px;margin:18px 0}
+  .q .tag{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+     background:#243044;color:#9fc7ff;padding:3px 9px;border-radius:20px;margin-bottom:8px}
+  .q .en{font-weight:600;margin:4px 0 10px}
+  .sol{border-top:1px dashed var(--line);margin-top:12px;padding-top:12px;color:#d3d9e4}
+  .ans{display:inline-block;background:#16342a;color:var(--ok);border:1px solid #235c47;
+     padding:4px 12px;border-radius:6px;font-weight:700;margin-top:10px}
+  .ans.q2{background:#3a2a16;color:var(--warn);border-color:#5c4623}
+  ul,ol{margin:10px 0 10px 22px;padding:0}
+  li{margin:5px 0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .step{counter-reset:s}
+  .step li{margin:8px 0}
+  nav a{color:var(--acc);text-decoration:none;display:block;padding:3px 0;font-size:15px}
+  nav a:hover{text-decoration:underline}
+  .kbd{color:var(--warn);font-weight:600}
+  svg{display:block;margin:14px auto;max-width:100%}
+  .note{color:var(--dim);font-size:14px}
+  .pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:12px;
+    background:#2a2f3a;color:var(--dim);margin-right:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Guía de Triángulos, Geometría y Factorización</h1>
+  <div class="sub">Prueba Específica de Matemática — Médico y Cirujano · CUNOC, Quetzaltenango<br>
+  Construida sobre el temario oficial USAC y las <strong>31 preguntas reales</strong> del examen anterior que subiste.</div>
+</header>
+
+<div class="box acc">
+  <div class="lbl">Lo primero: dónde están los puntos</div>
+  <p>Según la tabla de especificaciones del temario, el examen se reparte así. Los tres bloques que mencionaste concentran <strong>39% del examen</strong>:</p>
+  <table>
+    <tr><th>Tema</th><th class="c">Peso</th><th>Comentario</th></tr>
+    <tr><td><strong>Factorización</strong></td><td class="c"><strong>21%</strong></td><td>El tema más pesado del examen, por mucho. Aquí se gana o se pierde.</td></tr>
+    <tr><td>Conjuntos numéricos</td><td class="c">17%</td><td>Fracciones, radicales, jerarquía, reales.</td></tr>
+    <tr><td><strong>Resolución de triángulos</strong></td><td class="c"><strong>13%</strong></td><td>Pitágoras, razones trigonométricas, ley de senos y cosenos.</td></tr>
+    <tr><td>Matemática Maya</td><td class="c">9%</td><td>Fácil de dominar: es memoria pura. Puntos regalados.</td></tr>
+    <tr><td>Estadística</td><td class="c">8%</td><td>Media, mediana, moda, probabilidad, combinatoria.</td></tr>
+    <tr><td>Razones y proporciones</td><td class="c">7%</td><td>Porcentajes, variación directa e inversa.</td></tr>
+    <tr><td>Terminología algebraica</td><td class="c">7%</td><td>Polinomios, productos notables, binomio de Newton.</td></tr>
+    <tr><td>Ecuaciones e inecuaciones</td><td class="c">5%</td><td>Despejes, discriminante.</td></tr>
+    <tr><td><strong>Elementos básicos de geometría</strong></td><td class="c"><strong>5%</strong></td><td>Ángulos, paralelas, áreas, cuerpos sólidos.</td></tr>
+    <tr><td>Lógica matemática</td><td class="c">4%</td><td>Tablas de verdad.</td></tr>
+    <tr><td>Funciones</td><td class="c">4%</td><td>Dominio, rango, gráficas.</td></tr>
+  </table>
+  <p class="note">Dato importante del análisis de tus imágenes: de las 31 preguntas distintas, <strong>13 son de triángulos o geometría</strong>. Tu instinto de enfocarte ahí es correcto.</p>
+</div>
+
+<h2 id="p1">Parte 1 · Cómo resolver cualquier triángulo</h2>
+
+<p>"Resolver un triángulo" significa encontrar sus 6 elementos: 3 lados y 3 ángulos. Todo se reduce a <strong>una sola pregunta</strong>: ¿el triángulo tiene un ángulo recto o no?</p>
+
+<div class="box acc">
+  <div class="lbl">El árbol de decisión — memorízalo</div>
+  <ol>
+    <li><strong>¿Hay ángulo recto (90°)?</strong>
+      <ul>
+        <li><strong>Sí</strong> → ¿me dan 2 lados? Usa <span class="m">Pitágoras</span>. ¿Me dan 1 lado y 1 ángulo? Usa <span class="m">SOH-CAH-TOA</span>.</li>
+        <li><strong>No</strong> → sigue al paso 2.</li>
+      </ul>
+    </li>
+    <li><strong>¿Qué me dieron?</strong>
+      <ul>
+        <li>Un lado con su ángulo opuesto (pareja completa) → <span class="m">Ley de Senos</span></li>
+        <li>Dos lados y el ángulo <em>entre</em> ellos (LAL) → <span class="m">Ley de Cosenos</span></li>
+        <li>Los tres lados (LLL) → <span class="m">Ley de Cosenos</span> despejando el ángulo</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<h3>1.1 · Triángulo rectángulo</h3>
+
+<svg viewBox="0 0 420 200" width="420" height="200">
+  <polygon points="60,170 330,170 330,40" fill="#1d212a" stroke="#4da3ff" stroke-width="2"/>
+  <rect x="310" y="150" width="20" height="20" fill="none" stroke="#9aa3b2" stroke-width="1.5"/>
+  <path d="M 100 170 A 40 40 0 0 0 88 145" fill="none" stroke="#ffb454" stroke-width="2"/>
+  <text x="105" y="160" fill="#ffb454" font-size="15" font-family="monospace">θ</text>
+  <text x="180" y="192" fill="#9aa3b2" font-size="14">cateto ADYACENTE a θ</text>
+  <text x="340" y="110" fill="#9aa3b2" font-size="14">cateto OPUESTO a θ</text>
+  <text x="150" y="95" fill="#9aa3b2" font-size="14" transform="rotate(-25 150 95)">HIPOTENUSA</text>
+</svg>
+
+<div class="grid">
+  <div class="box">
+    <div class="lbl">Teorema de Pitágoras</div>
+    <p class="m" style="display:block;padding:10px">a² + b² = c²</p>
+    <p class="note">c es <strong>siempre</strong> la hipotenusa (el lado más largo, el que está frente al ángulo de 90°). Error común: usarlo con un lado que no es la hipotenusa.</p>
+  </div>
+  <div class="box">
+    <div class="lbl">Razones trigonométricas — SOH CAH TOA</div>
+    <p class="m" style="display:block;padding:10px">sen θ = <strong>O</strong>puesto / <strong>H</strong>ipotenusa<br>
+       cos θ = <strong>A</strong>dyacente / <strong>H</strong>ipotenusa<br>
+       tan θ = <strong>O</strong>puesto / <strong>A</strong>dyacente</p>
+  </div>
+</div>
+
+<div class="box ok">
+  <div class="lbl">El truco que resuelve el 90% de los problemas de aplicación</div>
+  <p>En los problemas de "altura de la torre", "largo del cable", "grúa del camión", haz siempre esto:</p>
+  <ol>
+    <li>Dibuja el triángulo y marca el ángulo dado con un arco.</li>
+    <li>Etiqueta cada lado como <span class="kbd">O</span>, <span class="kbd">A</span> o <span class="kbd">H</span> <em>respecto de ese ángulo</em>.</li>
+    <li>Identifica cuál lado <strong>conoces</strong> y cuál <strong>buscas</strong>. Esas dos letras te dicen la razón:
+      <ul>
+        <li>O y H → <strong>seno</strong> &nbsp;·&nbsp; A y H → <strong>coseno</strong> &nbsp;·&nbsp; O y A → <strong>tangente</strong></li>
+      </ul>
+    </li>
+    <li>Escribe la ecuación y despeja.</li>
+  </ol>
+  <p class="note">La única confusión posible es "adyacente vs. hipotenusa". La hipotenusa nunca toca el ángulo de 90° como cateto — es el lado que lo <em>enfrenta</em>.</p>
+</div>
+
+<h4>Ángulos de elevación y depresión</h4>
+<p>Ambos se miden <strong>desde la horizontal</strong>. Elevación: miras hacia arriba. Depresión: miras hacia abajo. Son ángulos alternos internos, así que el ángulo de depresión desde la torre hacia ti es igual al de elevación desde ti hacia la torre. Nunca los midas desde la vertical.</p>
+
+<h3>1.2 · Valores exactos que debes tener memorizados</h3>
+<table>
+  <tr><th>θ</th><th class="c">30°</th><th class="c">45°</th><th class="c">60°</th><th class="c">90°</th></tr>
+  <tr><td><strong>sen</strong></td><td class="c">1/2 = 0.5</td><td class="c">√2/2 ≈ 0.707</td><td class="c">√3/2 ≈ 0.866</td><td class="c">1</td></tr>
+  <tr><td><strong>cos</strong></td><td class="c">√3/2 ≈ 0.866</td><td class="c">√2/2 ≈ 0.707</td><td class="c">1/2 = 0.5</td><td class="c">0</td></tr>
+  <tr><td><strong>tan</strong></td><td class="c">√3/3 ≈ 0.577</td><td class="c">1</td><td class="c">√3 ≈ 1.732</td><td class="c">—</td></tr>
+</table>
+<p class="note">Regla mnemotécnica: los senos de 0°, 30°, 45°, 60°, 90° son √0/2, √1/2, √2/2, √3/2, √4/2. Los cosenos son la misma lista al revés.</p>
+
+<h3>1.3 · Ternas pitagóricas (te ahorran 30 segundos por pregunta)</h3>
+<p><span class="pill">3–4–5</span><span class="pill">5–12–13</span><span class="pill">8–15–17</span><span class="pill">7–24–25</span><span class="pill">9–40–41</span><span class="pill">20–21–29</span></p>
+<p class="note">Y sus múltiplos: 6–8–10, 9–12–15, 10–24–26, 16–30–34… Fíjate: la pregunta 3 de tu examen usa <strong>8–15–17</strong> y la de la rampa usa <strong>3–4–5</strong>. No es coincidencia; los examinadores las reciclan.</p>
+
+<h3>1.4 · Triángulos oblicuángulos (sin ángulo recto)</h3>
+
+<div class="grid">
+  <div class="box">
+    <div class="lbl">Ley de Senos</div>
+    <p class="m" style="display:block;padding:10px">a / sen A = b / sen B = c / sen C</p>
+    <p><strong>Cuándo:</strong> cuando tienes una <em>pareja completa</em> (un lado y el ángulo que se le opone) más un dato adicional.</p>
+    <p class="note">Casos: ALA, AAL, LLA. Cuidado con el "caso ambiguo" LLA: puede haber dos triángulos posibles.</p>
+  </div>
+  <div class="box">
+    <div class="lbl">Ley de Cosenos</div>
+    <p class="m" style="display:block;padding:10px">a² = b² + c² − 2bc·cos A</p>
+    <p><strong>Cuándo:</strong> LAL (dos lados y el ángulo entre ellos) o LLL (los tres lados).</p>
+    <p class="note">Es Pitágoras generalizado: si A = 90°, cos A = 0 y se reduce a a² = b² + c².</p>
+  </div>
+</div>
+
+<h3>1.5 · Fórmulas de área — cuál usar</h3>
+<table>
+  <tr><th>Si te dan…</th><th>Fórmula</th><th>Ejemplo de tu examen</th></tr>
+  <tr><td>base y altura</td><td class="m">A = b·h / 2</td><td>Rampa (preg. 20)</td></tr>
+  <tr><td><strong>dos lados y el ángulo entre ellos</strong></td><td class="m">A = ½·a·b·sen C</td><td>Preg. 15 — <em>la clave</em></td></tr>
+  <tr><td>los tres lados</td><td class="m">Herón: A = √[s(s−a)(s−b)(s−c)], s = (a+b+c)/2</td><td>—</td></tr>
+  <tr><td>triángulo equilátero de lado L</td><td class="m">A = L²√3 / 4</td><td>—</td></tr>
+</table>
+<div class="box warn">
+  <p><strong>La fórmula <span class="m">A = ½·a·b·sen C</span> apareció en tu examen y es la que más gente falla.</strong> Cuando ves un triángulo con dos lados marcados y un ángulo <em>entre</em> ellos, no busques la altura: usa esta fórmula directamente.</p>
+</div>
+
+<h3>1.6 · Ángulos entre paralelas (aparece en el examen)</h3>
+<ul>
+  <li><strong>Correspondientes, alternos internos y alternos externos:</strong> son <strong>iguales</strong>.</li>
+  <li><strong>Conjugados / colaterales:</strong> suman <strong>180°</strong>.</li>
+  <li><strong>Opuestos por el vértice:</strong> son <strong>iguales</strong>.</li>
+  <li><strong>Adyacentes sobre una recta:</strong> suman <strong>180°</strong>.</li>
+</ul>
+<p class="note">Técnica: cuando una figura tiene varias paralelas, "arrastra" el ángulo conocido de recta en recta hasta llegar al que buscas. Solo hay dos valores posibles en toda la figura: θ y 180−θ.</p>
+
+<h2 id="p2">Parte 2 · Las preguntas de triángulos y geometría de tu examen, resueltas</h2>
+
+<div class="q">
+  <span class="tag">Triángulo rectángulo · trigonometría</span>
+  <div class="en">Calcular cuánto mide la grúa de un camión. La grúa forma 40° con la horizontal y su proyección horizontal es 6 m.</div>
+  <div class="sol">
+    <p>El lado de 6 m es <strong>adyacente</strong> a los 40°; la grúa es la <strong>hipotenusa</strong>. Adyacente + hipotenusa → <strong>coseno</strong>.</p>
+    <p class="m">cos 40° = 6 / L  →  L = 6 / cos 40° = 6 / 0.766 = <strong>7.83 m</strong></p>
+    <p class="note">Trampa: mucha gente usa seno o tangente porque ve un triángulo "parado". Etiqueta O–A–H antes de escribir nada.</p>
+  </div>
+  <div class="ans">Respuesta: b) 7.83</div>
+</div>
+
+<div class="q">
+  <span class="tag">Triángulo rectángulo · trigonometría</span>
+  <div class="en">Un poste de 5 m se fija con un cable al suelo. Desde ese punto el poste se ve bajo un ángulo de 40°. ¿A qué distancia del poste se sujeta el cable?</div>
+  <div class="sol">
+    <p>El poste (5 m) es el <strong>opuesto</strong> a los 40°; la distancia buscada es el <strong>adyacente</strong>. Opuesto + adyacente → <strong>tangente</strong>.</p>
+    <p class="m">tan 40° = 5 / d  →  d = 5 / tan 40° = 5 / 0.839 = <strong>5.96 m</strong></p>
+  </div>
+  <div class="ans">Respuesta: a) 5.96 m</div>
+</div>
+
+<div class="q">
+  <span class="tag">Dos triángulos · sistema de ecuaciones</span>
+  <div class="en">Para medir una torre, desde un punto se ve la punta bajo 30°. Nos acercamos 4 m y el ángulo pasa a 75°. Halla la altura.</div>
+  <div class="sol">
+    <p>Este es el <strong>problema de los dos ángulos de elevación</strong>, y es un clásico absoluto. Llama <span class="m">h</span> a la altura y <span class="m">x</span> a la distancia desde el punto <em>cercano</em> a la base.</p>
+    <ol>
+      <li>Triángulo cercano: <span class="m">tan 75° = h / x</span> → <span class="m">x = h / tan 75°</span></li>
+      <li>Triángulo lejano: <span class="m">tan 30° = h / (x + 4)</span> → <span class="m">x + 4 = h / tan 30°</span></li>
+      <li>Resta: <span class="m">4 = h/tan30° − h/tan75° = h(cot30° − cot75°)</span></li>
+      <li><span class="m">h = 4 / (1.7321 − 0.2679) = 4 / 1.4641 = <strong>2.73 m</strong></span></li>
+    </ol>
+    <div class="box ok" style="margin-top:14px">
+      <div class="lbl">Fórmula lista para usar — memorízala</div>
+      <p class="m" style="display:block;padding:10px">h = d / (cot α − cot β)&nbsp;&nbsp;&nbsp; donde α es el ángulo lejano, β el cercano, d la distancia que avanzaste.</p>
+      <p class="note">Equivalente: h = d · tanα · tanβ / (tanβ − tanα). Con esta fórmula el problema sale en 20 segundos.</p>
+    </div>
+  </div>
+  <div class="ans">Respuesta: a) 2.73 m</div>
+</div>
+
+<div class="q">
+  <span class="tag">Triángulos encadenados</span>
+  <div class="en">Calcule la longitud del tobogán, formado por tres tramos con inclinaciones de 30°, 25° y 35° y alturas verticales de 4 m, 3 m y 5 m respectivamente.</div>
+  <div class="sol">
+    <p>Cada tramo es la hipotenusa de su propio triángulo rectángulo. En cada uno conoces el <strong>opuesto</strong> (la altura) y buscas la <strong>hipotenusa</strong> → <strong>seno</strong>.</p>
+    <table>
+      <tr><th>Tramo</th><th>Ángulo</th><th>Altura</th><th>Longitud = h / sen θ</th></tr>
+      <tr><td>Inferior</td><td>30°</td><td>4 m</td><td>4 / 0.5000 = 8.00</td></tr>
+      <tr><td>Medio</td><td>25°</td><td>3 m</td><td>3 / 0.4226 = 7.10</td></tr>
+      <tr><td>Superior</td><td>35°</td><td>5 m</td><td>5 / 0.5736 = 8.72</td></tr>
+      <tr><td colspan="3"><strong>Total</strong></td><td><strong>23.82 m</strong></td></tr>
+    </table>
+    <p class="note">El resultado exacto es 23.816. La opción más cercana es 23.72 (redondeo del examen). Método correcto: sumar hipotenusas, nunca alturas.</p>
+  </div>
+  <div class="ans q2">Respuesta: d) 23.72 &nbsp;·&nbsp; (cálculo exacto: 23.82)</div>
+</div>
+
+<div class="q">
+  <span class="tag">Área con dos lados y ángulo</span>
+  <div class="en">Determine el área del triángulo con lados de 10 cm y 20 cm y un ángulo de 30° entre ellos.</div>
+  <div class="sol">
+    <p>Dos lados + el ángulo entre ellos → <span class="m">A = ½·a·b·sen C</span>. No necesitas la altura.</p>
+    <p class="m">A = ½ · 10 · 20 · sen 30° = ½ · 200 · 0.5 = <strong>50 cm²</strong></p>
+    <p class="note">Trampa de las opciones: 100 cm² es lo que sale si olvidas el ½; 200 cm² si además olvidas el seno. Los distractores están diseñados para esos dos errores exactos.</p>
+  </div>
+  <div class="ans">Respuesta: d) 50 cm²</div>
+</div>
+
+<div class="q">
+  <span class="tag">Pitágoras + área</span>
+  <div class="en">Una rampa forma un triángulo rectángulo con el suelo. La rampa mide 5 m y la altura es 4 m. ¿Cuál es el área de la superficie triangular?</div>
+  <div class="sol">
+    <p>La rampa es la hipotenusa (5), la altura un cateto (4). Pitágoras: <span class="m">base = √(25 − 16) = 3</span>. Es la terna <strong>3–4–5</strong>.</p>
+    <p class="m">A = (3 · 4) / 2 = <strong>6 m²</strong></p>
+  </div>
+  <div class="ans">Respuesta: d) 6</div>
+</div>
+
+<div class="q">
+  <span class="tag">Dos triángulos rectángulos · comparten altura</span>
+  <div class="en">Un poste de 15 m está sujetado por dos cables. El cable AB forma 60° con el suelo y el cable BC forma 45°. Determine la longitud de los cables.</div>
+  <div class="sol">
+    <p>El poste (15 m) es el <strong>opuesto</strong> en ambos triángulos; los cables son las <strong>hipotenusas</strong> → <strong>seno</strong> en los dos.</p>
+    <p class="m">AB = 15 / sen 60° = 15 / 0.8660 = <strong>17.32 m</strong><br>
+       BC = 15 / sen 45° = 15 / 0.7071 = <strong>21.21 m</strong></p>
+    <p class="note">Verificación de sentido común sin calculadora: 45° es un ángulo <em>más abierto/tendido</em>, así que ese cable tiene que ser el más largo. Eso solo ya descarta a) y d).</p>
+  </div>
+  <div class="ans">Respuesta: c) AB = 17.32, BC = 21.21</div>
+</div>
+
+<div class="q">
+  <span class="tag">Altura sobre la hipotenusa · semejanza</span>
+  <div class="en">Triángulo rectángulo ABC: cateto AB = 15 cm, cateto BC = 8 cm, hipotenusa AC = 17 cm. ¿Cuánto mide la altura h sobre la hipotenusa (segmento BD)?</div>
+  <div class="sol">
+    <p>Terna <strong>8–15–17</strong>. Truco: el área del triángulo se puede calcular de <strong>dos maneras</strong>, y eso da la altura de inmediato.</p>
+    <ol>
+      <li>Con los catetos: <span class="m">A = (15 · 8)/2 = 60</span></li>
+      <li>Con la hipotenusa como base: <span class="m">A = (17 · h)/2</span></li>
+      <li>Iguala: <span class="m">(17·h)/2 = 60  →  h = 120/17 ≈ 7.06 cm</span></li>
+    </ol>
+    <div class="box ok" style="margin-top:14px">
+      <div class="lbl">Fórmula directa</div>
+      <p class="m" style="display:block;padding:10px">h = (cateto₁ · cateto₂) / hipotenusa</p>
+      <p class="note">Relaciones métricas asociadas que también pueden preguntarte: <span class="m">h² = m·n</span> y <span class="m">cateto² = hipotenusa · proyección</span>, donde m y n son los segmentos en que h divide a la hipotenusa.</p>
+    </div>
+  </div>
+  <div class="ans">Respuesta: a) 120/17</div>
+</div>
+
+<div class="q">
+  <span class="tag">Suma de ángulos</span>
+  <div class="en">Encuentre el valor de α para el triángulo rectángulo mostrado, sabiendo que otro de sus ángulos mide 30°.</div>
+  <div class="sol">
+    <p>Los ángulos internos de todo triángulo suman 180°. Si uno es 90° y otro 30°:</p>
+    <p class="m">α = 180° − 90° − 30° = <strong>60°</strong></p>
+    <p class="note">En un triángulo rectángulo los dos ángulos agudos son siempre <strong>complementarios</strong> (suman 90°). Es un atajo que vale la pena tener automático.</p>
+  </div>
+  <div class="ans">Respuesta: a) 60°</div>
+</div>
+
+<div class="q">
+  <span class="tag">Pitágoras</span>
+  <div class="en">Encuentre el valor de a en el triángulo rectángulo con cateto 4 e hipotenusa √41.</div>
+  <div class="sol">
+    <p class="m">a² + 4² = (√41)²  →  a² + 16 = 41  →  a² = 25  →  a = <strong>5</strong></p>
+    <p class="note">Ojo: <span class="m">(√41)² = 41</span>. El radical y el cuadrado se cancelan; no hay que calcular √41 ≈ 6.4.</p>
+  </div>
+  <div class="ans">Respuesta: b) 5</div>
+</div>
+
+<div class="q">
+  <span class="tag">Ángulos entre paralelas</span>
+  <div class="en">Rectas R, S y L paralelas, con dos semirrectas transversales perpendiculares entre sí. Una forma 32° con las paralelas. Encuentre β.</div>
+  <div class="sol">
+    <ol>
+      <li>Las dos semirrectas son perpendiculares → forman 90° entre sí.</li>
+      <li>Si una hace 32° con las paralelas, la otra hace <span class="m">90° − 32° = 58°</span> con ellas.</li>
+      <li>β es el ángulo suplementario de esos 58° sobre la recta R:<br>
+          <span class="m">β = 180° − 58° = <strong>122°</strong></span></li>
+    </ol>
+    <p class="note">Descarte rápido: β se ve claramente <em>obtuso</em> en el dibujo, así que 32° y 58° quedan fuera de entrada. Quedan 122° y 148°, y 148° solo saldría si el ángulo base fuera 32° en vez de 58°.</p>
+  </div>
+  <div class="ans">Respuesta: a) 122°</div>
+</div>
+
+<div class="q">
+  <span class="tag">Ángulos · razonamiento</span>
+  <div class="en">Encuentre la suma de los ángulos de los vértices de los triángulos que se tocan en el punto de unión.</div>
+  <div class="sol">
+    <p>Los dos ángulos en el punto de contacto son <strong>opuestos por el vértice</strong>, así que son <em>iguales</em> entre sí — pero la figura no da ningún valor numérico. Si cada uno mide x, la suma es 2x, y x puede ser cualquier valor entre 0° y 180°.</p>
+    <p>No se puede determinar. La suma no es forzosamente 180°, 270° ni 90°.</p>
+  </div>
+  <div class="ans">Respuesta: c) Ninguna es correcta</div>
+</div>
+
+<div class="q">
+  <span class="tag">Círculo · sector circular</span>
+  <div class="en">Un sector circular tiene ángulo central de 60° y área de 27π/2 pulg². ¿Cuál es la longitud del arco?</div>
+  <div class="sol">
+    <p>60° es <span class="m">60/360 = 1/6</span> del círculo completo.</p>
+    <ol>
+      <li>Área del sector: <span class="m">(1/6)·πr² = 27π/2  →  r² = 81  →  r = 9</span></li>
+      <li>Arco: <span class="m">(1/6)·2πr = (1/6)·2π·9 = <strong>3π</strong></span></li>
+    </ol>
+    <div class="box ok" style="margin-top:14px">
+      <div class="lbl">Las dos fórmulas del sector</div>
+      <p class="m" style="display:block;padding:10px">Área = (θ/360°)·πr²&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Arco = (θ/360°)·2πr</p>
+      <p class="note">En radianes son aún más simples: Área = ½r²θ, Arco = rθ. Conversión: <span class="m">180° = π rad</span>.</p>
+    </div>
+  </div>
+  <div class="ans">Respuesta: a) 3π</div>
+</div>
+
+<div class="q">
+  <span class="tag">Áreas compuestas</span>
+  <div class="en">Determine el área dentro del círculo de diámetro 10 cm y fuera del cuadrado inscrito.</div>
+  <div class="sol">
+    <p>Área buscada = área del círculo − área del cuadrado.</p>
+    <ol>
+      <li>Círculo: <span class="m">r = 5  →  A = 25π ≈ 78.54</span></li>
+      <li>El cuadrado está inscrito, así que su <strong>diagonal</strong> es el diámetro: <span class="m">d = 10</span>.<br>
+          Con lado L: <span class="m">L² + L² = 10²  →  2L² = 100  →  L² = 50</span>. El área del cuadrado <em>es</em> L² = <strong>50</strong>.</li>
+      <li><span class="m">25π − 50 ≈ 28.54 cm²</span></li>
+    </ol>
+    <p>Ninguna opción coincide (20π−5, π/4−1, 10π−10).</p>
+    <p class="note">Atajo útil: el área de un cuadrado en función de su diagonal es <span class="m">A = d²/2</span>. Aquí, 100/2 = 50, sin pasar por el lado.</p>
+  </div>
+  <div class="ans">Respuesta: d) Ninguna es correcta</div>
+</div>
+
+<div class="q">
+  <span class="tag">Geometría + álgebra</span>
+  <div class="en">Un predio rectangular tiene 50 pies de ancho. La diagonal mide 10 pies más que el largo. ¿Cuál es el largo?</div>
+  <div class="sol">
+    <p>Sea L el largo; la diagonal es L + 10. Pitágoras:</p>
+    <p class="m">50² + L² = (L + 10)²<br>
+       2500 + L² = L² + 20L + 100<br>
+       2400 = 20L  →  L = <strong>120 pies</strong></p>
+    <p class="note">La clave: <strong>L² se cancela en ambos lados</strong> y queda una ecuación lineal. Si te queda una cuadrática, revisa el desarrollo del binomio.</p>
+  </div>
+  <div class="ans">Respuesta: b) 120 pies</div>
+</div>
+
+<div class="q">
+  <span class="tag">Cuerpos sólidos</span>
+  <div class="en">Un cilindro recto tiene altura igual a dos veces el radio y volumen 250π cm³. Encuentre el radio.</div>
+  <div class="sol">
+    <p class="m">V = πr²h, con h = 2r  →  πr²(2r) = 2πr³ = 250π  →  r³ = 125  →  r = <strong>5 cm</strong></p>
+  </div>
+  <div class="ans">Respuesta: c) 5 cm</div>
+</div>
+
+<div class="q">
+  <span class="tag">Cuerpos sólidos</span>
+  <div class="en">Un pastel cilíndrico tiene volumen 4000π cm³ y radio 20 cm. ¿Cuál es la altura?</div>
+  <div class="sol">
+    <p class="m">π(20²)h = 4000π  →  400h = 4000  →  h = <strong>10 cm</strong></p>
+    <p class="note">Cancela π en ambos lados de una vez; nunca sustituyas 3.1416 si el enunciado y las opciones vienen en términos de π.</p>
+  </div>
+  <div class="ans">Respuesta: b) 10</div>
+</div>
+
+<div class="q">
+  <span class="tag">Área superficial</span>
+  <div class="en">¿Cuánta pintura se necesita para cubrir un cubo de lado 2x?</div>
+  <div class="sol">
+    <p>"Pintar" = <strong>área superficial</strong>, no volumen. Un cubo tiene 6 caras cuadradas:</p>
+    <p class="m">A = 6·(2x)² = 6·4x² = <strong>24x²</strong></p>
+    <p class="note">La opción 8x³ es el <em>volumen</em> — es el distractor principal. Regla: si la unidad de la respuesta debe ser de área, el exponente debe ser 2.</p>
+  </div>
+  <div class="ans">Respuesta: d) 24x²</div>
+</div>
+
+<div class="q">
+  <span class="tag">Geometría + ecuación cuadrática</span>
+  <div class="en">El lado de un cuadrado es 6 veces el lado de otro. La suma de sus áreas es 592 plg². ¿Cuál es la suma de sus perímetros?</div>
+  <div class="sol">
+    <p>Lados: x y 6x.</p>
+    <p class="m">x² + (6x)² = 592  →  x² + 36x² = 592  →  37x² = 592  →  x² = 16  →  x = 4</p>
+    <p>Lados: 4 y 24. Perímetros: <span class="m">4(4) + 4(24) = 16 + 96 = <strong>112 plg</strong></span></p>
+    <p class="note">Error clásico: contestar 4(4+24) = 112 está bien, pero mucha gente contesta el perímetro de <em>uno solo</em> (96) o suma los lados (28). Lee qué te piden exactamente.</p>
+  </div>
+  <div class="ans">Respuesta: d) 112 plg</div>
+</div>
+
+<h2 id="p3">Parte 3 · Factorización (21% del examen — el bloque más grande)</h2>
+
+<div class="box acc">
+  <div class="lbl">El orden en que debes intentar factorizar — siempre el mismo</div>
+  <ol>
+    <li><strong>Factor común.</strong> Siempre primero. <span class="m">6x³ − 9x² = 3x²(2x − 3)</span></li>
+    <li><strong>Cuenta los términos:</strong>
+      <ul>
+        <li><strong>2 términos</strong> → diferencia de cuadrados <span class="m">a² − b² = (a+b)(a−b)</span>, suma/diferencia de cubos.</li>
+        <li><strong>3 términos</strong> → trinomio cuadrado perfecto, o trinomio general (aspa/tanteo).</li>
+        <li><strong>4 términos</strong> → agrupación de a dos.</li>
+      </ul>
+    </li>
+    <li><strong>Vuelve a revisar</strong> cada factor: a veces se puede factorizar otra vez.</li>
+  </ol>
+</div>
+
+<h3>Los casos que debes tener automáticos</h3>
+<table>
+  <tr><th>Caso</th><th>Fórmula</th><th>Cómo lo reconoces</th></tr>
+  <tr><td>Diferencia de cuadrados</td><td class="m">a² − b² = (a+b)(a−b)</td><td>Dos términos, ambos cuadrados perfectos, restándose. <strong>La suma a²+b² NO se factoriza</strong> en los reales.</td></tr>
+  <tr><td>Trinomio cuadrado perfecto</td><td class="m">a² ± 2ab + b² = (a ± b)²</td><td>Primero y último son cuadrados perfectos y el de en medio es 2·√primero·√último.</td></tr>
+  <tr><td>Diferencia de cubos</td><td class="m">a³ − b³ = (a−b)(a² + ab + b²)</td><td rowspan="2">Truco de signos <strong>SOAP</strong>: <u>S</u>ame (igual), <u>O</u>pposite (opuesto), <u>A</u>lways <u>P</u>ositive.</td></tr>
+  <tr><td>Suma de cubos</td><td class="m">a³ + b³ = (a+b)(a² − ab + b²)</td></tr>
+  <tr><td>Trinomio x² + bx + c</td><td class="m">(x + m)(x + n), con m·n = c y m + n = b</td><td>Coeficiente principal 1. Busca dos números que multipliquen c y sumen b.</td></tr>
+  <tr><td>Trinomio ax² + bx + c</td><td class="m">Método del aspa / multiplicar y dividir por a</td><td>Coeficiente principal ≠ 1.</td></tr>
+  <tr><td>Agrupación</td><td class="m">ax + ay + bx + by = (a+b)(x+y)</td><td>4 términos.</td></tr>
+</table>
+
+<div class="q">
+  <span class="tag">Factorización · con exponente literal</span>
+  <div class="en">Factorizar 4x² − 2<sup>2n</sup>, donde n es natural distinto de cero.</div>
+  <div class="sol">
+    <p>Reescribe ambos términos como cuadrados:</p>
+    <p class="m">4x² = (2x)²&nbsp;&nbsp;&nbsp;&nbsp;2<sup>2n</sup> = (2<sup>n</sup>)²</p>
+    <p>Es una diferencia de cuadrados:</p>
+    <p class="m">(2x)² − (2<sup>n</sup>)² = <strong>(2x − 2<sup>n</sup>)(2x + 2<sup>n</sup>)</strong></p>
+    <p class="note">El truco es la ley <span class="m">a<sup>2n</sup> = (a<sup>n</sup>)²</span>. Cuando veas exponentes con letras, intenta partirlos a la mitad para revelar un cuadrado.</p>
+  </div>
+  <div class="ans">Respuesta: c) (2x − 2ⁿ)(2x + 2ⁿ)</div>
+</div>
+
+<div class="q">
+  <span class="tag">Factorización numérica</span>
+  <div class="en">¿Cuál expresión corresponde a la forma factorizada de 315?</div>
+  <div class="sol">
+    <p>"Factorizar" un número = escribirlo como <strong>producto</strong> de primos, no como suma.</p>
+    <p class="m">315 ÷ 3 = 105 → ÷ 3 = 35 → ÷ 5 = 7 → ÷ 7 = 1<br>
+       315 = 3² · 5 · 7</p>
+    <p class="note">Las opciones con sumas (130+185, 8·20+5·31) son distractores conceptuales: dan 315 pero no son factorizaciones.</p>
+  </div>
+  <div class="ans">Respuesta: b) 3² · 5 · 7</div>
+</div>
+
+<div class="q">
+  <span class="tag">Discriminante</span>
+  <div class="en">Dada 4x² + kx + 25 = 0, encuentre k para que tenga una sola solución real.</div>
+  <div class="sol">
+    <p>Una sola solución real ⟺ <strong>discriminante igual a cero</strong>:</p>
+    <p class="m">Δ = b² − 4ac = 0  →  k² − 4(4)(25) = 0  →  k² = 400  →  k = <strong>±20</strong></p>
+    <div class="box" style="margin-top:14px">
+      <div class="lbl">Regla del discriminante</div>
+      <p><span class="m">Δ &gt; 0</span> → dos soluciones reales distintas &nbsp;·&nbsp; <span class="m">Δ = 0</span> → una solución real (doble) &nbsp;·&nbsp; <span class="m">Δ &lt; 0</span> → sin soluciones reales (dos complejas)</p>
+    </div>
+    <p class="note">Camino alterno: si tiene raíz doble es un trinomio cuadrado perfecto, <span class="m">(2x ± 5)² = 4x² ± 20x + 25</span> → k = ±20. Mismo resultado.</p>
+  </div>
+  <div class="ans">Respuesta: c) 20</div>
+</div>
+
+<div class="q">
+  <span class="tag">Polinomios · resta</span>
+  <div class="en">Al polinomio 3x³ − 2xy + 5y² se le resta Q(x) y da 2x³ − 2y² − 5. ¿Cuál es Q(x)?</div>
+  <div class="sol">
+    <p>Si <span class="m">P − Q = R</span>, entonces <span class="m">Q = P − R</span>.</p>
+    <p class="m">Q = (3x³ − 2xy + 5y²) − (2x³ − 2y² − 5)<br>
+       Q = 3x³ − 2x³ − 2xy + 5y² + 2y² + 5<br>
+       Q = <strong>x³ − 2xy + 7y² + 5</strong></p>
+    <p class="note">El error más común: no distribuir el signo negativo a <em>todos</em> los términos del segundo paréntesis. Escribe el paréntesis y cambia los tres signos antes de operar.</p>
+  </div>
+  <div class="ans">Respuesta: a) x³ − 2xy + 7y² + 5</div>
+</div>
+
+<div class="q">
+  <span class="tag">Radicales · racionalización</span>
+  <div class="en">Racionalizar √27 / √(3(a+1))</div>
+  <div class="sol">
+    <ol>
+      <li>Une los radicales: <span class="m">√[27 / (3(a+1))] = √[9/(a+1)] = 3/√(a+1)</span></li>
+      <li>Racionaliza multiplicando arriba y abajo por <span class="m">√(a+1)</span>:<br>
+          <span class="m">3√(a+1) / (a+1)</span></li>
+    </ol>
+    <p class="note">Simplificar <em>antes</em> de racionalizar ahorra la mitad del trabajo. Aquí 27/3 = 9 y √9 = 3 sale de inmediato.</p>
+  </div>
+  <div class="ans">Respuesta: b) 3√(a+1) / (a+1)</div>
+</div>
+
+<div class="q">
+  <span class="tag">Exponentes racionales</span>
+  <div class="en">Efectuar: (2x^(2/3) / y^(1/2))² · (3x^(−5/6) / y^(1/3))</div>
+  <div class="sol">
+    <ol>
+      <li>Eleva el primer paréntesis al cuadrado (el exponente afecta a <em>todo</em>, incluido el 2):<br>
+          <span class="m">4x^(4/3) / y</span></li>
+      <li>Multiplica: coeficientes 4·3 = 12; para x suma exponentes; para y suma exponentes:<br>
+          <span class="m">x: 4/3 − 5/6 = 8/6 − 5/6 = 3/6 = 1/2</span><br>
+          <span class="m">y: 1 + 1/3 = 4/3</span> (queda en el denominador)</li>
+      <li><span class="m">= <strong>12x^(1/2) / y^(4/3)</strong></span></li>
+    </ol>
+  </div>
+  <div class="ans">Respuesta: a) 12x^(1/2) / y^(4/3)</div>
+</div>
+
+<h2 id="p4">Parte 4 · El resto del examen, resuelto</h2>
+
+<div class="q">
+  <span class="tag">Fracciones complejas</span>
+  <div class="en">Simplifique (2/3) ÷ [(1/3 + 2/3) ÷ (2/3)] + 1⅓ e indique el numerador de la fracción irreducible.<br>
+  <span class="note">(Variante del mismo ítem: … + 5⅔, indique el denominador.)</span></div>
+  <div class="sol">
+    <p>Trabaja de <strong>adentro hacia afuera</strong>:</p>
+    <ol>
+      <li><span class="m">1/3 + 2/3 = 1</span></li>
+      <li><span class="m">1 ÷ (2/3) = 3/2</span></li>
+      <li><span class="m">(2/3) ÷ (3/2) = (2/3)·(2/3) = 4/9</span></li>
+      <li>Versión A: <span class="m">4/9 + 4/3 = 4/9 + 12/9 = 16/9</span> → numerador = <strong>16</strong></li>
+      <li>Versión B: <span class="m">4/9 + 17/3 = 4/9 + 51/9 = 55/9</span> → denominador = <strong>9</strong></li>
+    </ol>
+    <p class="note">Regla de oro: dividir entre una fracción = multiplicar por su recíproco. Y convierte los mixtos a impropios <em>antes</em> de operar (1⅓ = 4/3; 5⅔ = 17/3).</p>
+  </div>
+  <div class="ans">Versión A: a) 16 &nbsp;·&nbsp; Versión B: b) 9</div>
+</div>
+
+<div class="q">
+  <span class="tag">Números reales</span>
+  <div class="en">¿Cuál expresión corresponde a un número real?</div>
+  <div class="sol">
+    <table>
+      <tr><th>Opción</th><th>Evaluación</th><th class="c">¿Real?</th></tr>
+      <tr><td class="m">(4 − 2²)/(2 + ∛−8)</td><td>(4−4)/(2−2) = 0/0</td><td class="c">No — indeterminado</td></tr>
+      <tr><td class="m">4/(−2² + ²√16)</td><td>4/(−4 + 4) = 4/0</td><td class="c">No — indefinido</td></tr>
+      <tr><td class="m">0⁰</td><td>indeterminado</td><td class="c">No</td></tr>
+      <tr><td class="m">0¹/1⁰</td><td>0/1 = 0</td><td class="c">Sí</td></tr>
+    </table>
+    <p class="note">Recuerda: <span class="m">−2² = −4</span> (el exponente afecta solo al 2), mientras que <span class="m">(−2)² = 4</span>. Y la raíz cúbica de un negativo SÍ es real: ∛−8 = −2.</p>
+  </div>
+  <div class="ans">Respuesta: d) 0¹/1⁰</div>
+</div>
+
+<div class="q">
+  <span class="tag">Despeje de fórmulas</span>
+  <div class="en">Despeje D en P = DRT/π + 1</div>
+  <div class="sol">
+    <p class="m">P − 1 = DRT/π  →  π(P − 1) = DRT  →  D = <strong>π(P − 1) / TR</strong></p>
+    <p class="note">Deshaz las operaciones en orden inverso: lo último que se hizo (sumar 1) se deshace primero.</p>
+  </div>
+  <div class="ans">Respuesta: a) D = (π(P−1))/TR</div>
+</div>
+
+<div class="q">
+  <span class="tag">Problema con ecuaciones</span>
+  <div class="en">El peso de una barra de metal equivale al peso de su tercera parte más 40 libras. ¿Cuál es el peso de barra y media?</div>
+  <div class="sol">
+    <p class="m">P = P/3 + 40  →  P − P/3 = 40  →  (2/3)P = 40  →  P = 60 lb</p>
+    <p>Barra y media: <span class="m">1.5 × 60 = <strong>90 lb</strong></span></p>
+    <p class="note">Distractor: 60 lb es el peso de <em>una</em> barra. La pregunta pide una y media. Subraya siempre lo que te piden.</p>
+  </div>
+  <div class="ans">Respuesta: b) 90 lbs</div>
+</div>
+
+<div class="q">
+  <span class="tag">Sistema de ecuaciones</span>
+  <div class="en">Archivos A (Q30) y B (Q60). Pedido de 250 archivos con cheque de Q12000. ¿Cuántos de cada tipo?</div>
+  <div class="sol">
+    <p class="m">A + B = 250&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;30A + 60B = 12000</p>
+    <p>Sustituyendo <span class="m">B = 250 − A</span>:</p>
+    <p class="m">30A + 60(250 − A) = 12000  →  30A + 15000 − 60A = 12000  →  −30A = −3000  →  <strong>A = 100, B = 150</strong></p>
+    <p class="note">Verificación de 5 segundos: 100(30) + 150(60) = 3000 + 9000 = 12000 ✓. Siempre verifica sustituyendo — es gratis y detecta errores de signo.</p>
+  </div>
+  <div class="ans">Respuesta: c) A=100, B=150</div>
+</div>
+
+<div class="q">
+  <span class="tag">Porcentajes</span>
+  <div class="en">Al calcular el 10% del 20% del 50% de 2000, se obtiene:</div>
+  <div class="sol">
+    <p>Los porcentajes encadenados se <strong>multiplican</strong>:</p>
+    <p class="m">0.10 × 0.20 × 0.50 × 2000 = 0.01 × 2000 = <strong>20</strong></p>
+    <p class="note">Trabaja de adentro hacia afuera si prefieres: 50% de 2000 = 1000; 20% de 1000 = 200; 10% de 200 = 20.</p>
+  </div>
+  <div class="ans">Respuesta: c) 20</div>
+</div>
+
+<div class="q">
+  <span class="tag">Desigualdades</span>
+  <div class="en">Reales a, b, c, d con c &gt; b, d &gt; c y c &lt; a. ¿Cuál comparación NO tiene posibilidad de ser cierta?</div>
+  <div class="sol">
+    <p>Encadena: de <span class="m">c &gt; b</span> y <span class="m">c &lt; a</span> se sigue <span class="m">b &lt; c &lt; a</span>, es decir <strong>b &lt; a siempre</strong>.</p>
+    <p>Sobre d solo sabemos que <span class="m">d &gt; c</span>; podría ser mayor o menor que a, así que "a &gt; d" y "d &gt; a" son ambas posibles.</p>
+    <p>La única imposible es <span class="m">b &gt; a</span>, porque contradice la cadena.</p>
+  </div>
+  <div class="ans">Respuesta: d) b &gt; a</div>
+</div>
+
+<div class="q">
+  <span class="tag">Límites / sucesiones</span>
+  <div class="en">Realice la serie de operaciones e indique el resultado de (10^(k−1)) / ((1/2k) + 1) si k = −∞</div>
+  <div class="sol">
+    <ul>
+      <li>Numerador: cuando <span class="m">k → −∞</span>, el exponente <span class="m">k−1 → −∞</span>, así que <span class="m">10^(k−1) → 0</span>.</li>
+      <li>Denominador: <span class="m">1/(2k) → 0</span>, así que el denominador <span class="m">→ 1</span>.</li>
+      <li>Resultado: <span class="m">0 / 1 = <strong>0</strong></span></li>
+    </ul>
+    <p class="note">Idea general: una base &gt; 1 elevada a un exponente que tiende a −∞ tiende a cero. <span class="m">10^(−100)</span> es un número diminuto, no negativo.</p>
+  </div>
+  <div class="ans">Respuesta: b) 0</div>
+</div>
+
+<div class="q">
+  <span class="tag">Estadística · tabla de doble entrada</span>
+  <div class="en">Tabla de IMC por edad, población de 464 estudiantes. Indique el porcentaje de estudiantes con Sobrepeso.</div>
+  <div class="sol">
+    <p>Total con sobrepeso: 30 + 45 + 20 = 95. Sobre el total de la población:</p>
+    <p class="m">95 / 464 × 100 = <strong>20.47%</strong></p>
+    <p>Si se incluyera obesidad: <span class="m">(95+31)/464 = 27.16%</span>. Ninguno de los dos coincide con las opciones (29.09, 2.16, 35.71, 62.79).</p>
+    <div class="box bad" style="margin-top:14px">
+      <p><strong>Este ítem parece tener error en las opciones.</strong> Lo importante es el método: en una tabla de doble entrada, primero decide cuál es el <em>total de referencia</em> (¿toda la población, una fila, una columna?), y después divide. Ese es siempre el punto de la pregunta.</p>
+    </div>
+  </div>
+  <div class="ans q2">Cálculo correcto: 20.47% — ninguna opción coincide</div>
+</div>
+
+<h2 id="p5">Parte 5 · Plan de estudio y errores a evitar</h2>
+
+<div class="box acc">
+  <div class="lbl">Orden recomendado de estudio (por retorno de puntos)</div>
+  <ol>
+    <li><strong>Factorización (21%)</strong> — los 7 casos de la tabla, hasta reconocerlos en 3 segundos. Es el bloque más grande del examen.</li>
+    <li><strong>Conjuntos numéricos (17%)</strong> — fracciones complejas, jerarquía de operaciones, leyes de exponentes, racionalización.</li>
+    <li><strong>Triángulos (13%)</strong> — el árbol de decisión de la Parte 1, más las 3 fórmulas de aplicación (dos ángulos de elevación, área con seno, altura sobre hipotenusa).</li>
+    <li><strong>Matemática Maya (9%)</strong> — es memoria pura: punto = 1, barra = 5, concha = 0, sistema vigesimal por niveles. Se domina en una tarde y son puntos seguros.</li>
+    <li><strong>Estadística (8%)</strong> — media/mediana/moda con datos agrupados, lectura de tablas, probabilidad simple, permutaciones vs. combinaciones.</li>
+    <li>El resto: proporciones, polinomios, ecuaciones, geometría de sólidos, lógica, funciones.</li>
+  </ol>
+</div>
+
+<h3>Los 10 errores que más caro cuestan (vistos en los distractores de tu examen)</h3>
+<table>
+  <tr><th class="c">#</th><th>Error</th><th>Cómo evitarlo</th></tr>
+  <tr><td class="c">1</td><td>Confundir seno con coseno en problemas de aplicación</td><td>Etiqueta O–A–H <em>en el dibujo</em> antes de escribir cualquier ecuación.</td></tr>
+  <tr><td class="c">2</td><td>Olvidar el ½ en A = ½·a·b·sen C</td><td>El área siempre lleva ½ cuando parte de dos lados o base×altura.</td></tr>
+  <tr><td class="c">3</td><td>Usar Pitágoras con un cateto como si fuera hipotenusa</td><td>La hipotenusa es siempre la <em>más larga</em> y está frente al ángulo recto.</td></tr>
+  <tr><td class="c">4</td><td>Calcular volumen cuando piden área superficial (y viceversa)</td><td>"Pintar/forrar/envolver" = área. "Llenar/capacidad" = volumen.</td></tr>
+  <tr><td class="c">5</td><td>No distribuir el signo negativo al restar polinomios</td><td>Cambia los signos de <em>todos</em> los términos antes de operar.</td></tr>
+  <tr><td class="c">6</td><td>Confundir −2² con (−2)²</td><td>Sin paréntesis, el exponente NO afecta al signo.</td></tr>
+  <tr><td class="c">7</td><td>Responder el valor intermedio en vez del pedido</td><td>Subraya en el enunciado exactamente qué te piden (barra vs. barra y media).</td></tr>
+  <tr><td class="c">8</td><td>Redondear demasiado pronto</td><td>Guarda 4 decimales durante el cálculo y redondea solo al final.</td></tr>
+  <tr><td class="c">9</td><td>Calculadora en radianes en vez de grados</td><td>Verifica con sen 30° = 0.5. Si te sale −0.988, estás en radianes.</td></tr>
+  <tr><td class="c">10</td><td>Sumar alturas en vez de hipotenusas (tobogán)</td><td>Cada tramo inclinado es una hipotenusa; nunca sumes catetos verticales.</td></tr>
+</table>
+
+<div class="box ok">
+  <div class="lbl">Estrategia el día del examen</div>
+  <ul>
+    <li><strong>El tiempo alcanza pero justo.</strong> En tus capturas se ve el reloj corriendo: ~1 hora total. Eso son menos de 2 minutos por pregunta.</li>
+    <li><strong>Primera pasada rápida:</strong> resuelve todo lo que sale en menos de 60 segundos. Marca lo demás y vuelve.</li>
+    <li><strong>Usa las opciones.</strong> Muchas preguntas se resuelven por descarte o sustituyendo hacia atrás, más rápido que resolviendo.</li>
+    <li><strong>Estimación de sentido común.</strong> Antes de calcular, pregúntate si el resultado debe ser grande o chico. Un cable a 45° tiene que ser más largo que uno a 60°; una hipotenusa tiene que ser mayor que cualquier cateto.</li>
+    <li><strong>"Ninguna es correcta" es una respuesta real.</strong> En tu examen apareció como correcta al menos dos veces. No la descartes por costumbre.</li>
+    <li><strong>Nunca dejes en blanco.</strong> No hay penalización visible por error; una respuesta al azar vale 25%.</li>
+  </ul>
+</div>
+
+<div class="box">
+  <div class="lbl">Bibliografía que recomienda la guía oficial</div>
+  <ul>
+    <li>Baldor, A. — <em>Álgebra</em> (Códice, 2002) — <strong>el de factorización</strong>; haz los casos 1 al 10.</li>
+    <li>Aragón, María et al. — <em>Alfa por competencias 1, 2, 3</em> (Norma, 2008)</li>
+    <li>Fernández, Brenda et al. — <em>Resolver 7</em> (Santillana Guatemala, 2011)</li>
+    <li>Sandoval, Lesbia et al. — <em>Resolver 9</em> (Santillana Guatemala, 2011)</li>
+    <li>Rodríguez, Manuel — <em>Matemáticas 1, 2 y 3</em> (Susaeta)</li>
+  </ul>
+</div>
+
+<p class="note" style="margin-top:40px;text-align:center;border-top:1px solid var(--line);padding-top:20px">
+Guía construida a partir de la Guía Temática de Matemática (USAC) y 31 preguntas del examen anterior.<br>
+Los resultados numéricos fueron verificados por cálculo. Dos ítems del examen original tienen opciones inconsistentes y están marcados como tales.
+</p>
+
+</div>
+</body>
+</html>
